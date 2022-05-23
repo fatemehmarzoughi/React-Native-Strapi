@@ -20,7 +20,7 @@ import {
     smFont,
     xlgFont,
     midFont
-} from 'src/constants/general'
+} from '../constants/general'
 
 export default class Card extends React.Component{
     render(){

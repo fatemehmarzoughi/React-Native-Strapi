@@ -8,9 +8,9 @@ import {
     StatusBar,
     TouchableOpacity,
 } from 'react-native';
-import axios from 'src/core/_axios';
-import { bgColorDark, statusBarHeight } from 'src/constants/general'
-import Card from 'src/components/card'
+import axios from './core/_axios';
+import { bgColorDark, statusBarHeight } from './constants/general'
+import Card from './components/card'
 
 export default class Main extends React.Component{
 
