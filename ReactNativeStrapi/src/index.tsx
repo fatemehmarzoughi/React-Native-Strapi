@@ -22,7 +22,7 @@ export default class Main extends React.Component{
   }
 
   async componentDidMount(){
-    const articles = await axios.get('/api/articles')
+    const articles = await axios.get('/api/articles?populate=variant,image')
     this.setState({
       data: articles.data.data
     })

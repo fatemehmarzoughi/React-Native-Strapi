@@ -9,6 +9,7 @@ export const windowWidth = Dimensions.get('window').width;
 export const windowHeight = Dimensions.get('window').height;
 export const smSpace = 10;
 export const lgSpace = 20;
+export const xlgSpace = 30;
 
 // Colors
 export const bgColorLight = '#14152c';
