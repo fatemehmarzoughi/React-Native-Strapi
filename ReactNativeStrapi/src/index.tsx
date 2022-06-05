@@ -7,9 +7,17 @@ import {
     FlatList, 
     StatusBar,
     TouchableOpacity,
+    RefreshControl
 } from 'react-native';
 import axios from './core/_axios';
-import { bgColorDark, statusBarHeight } from './constants/general'
+import { 
+  bgColorDark, 
+  statusBarHeight, 
+  contentColorDark, 
+  contentColorLight, 
+  xxlgFont, 
+  smSpace,
+} from './constants/general'
 import Card from './components/card'
 
 export default class Main extends React.Component{
@@ -17,23 +25,40 @@ export default class Main extends React.Component{
   constructor(){
     super();
     this.state={
-      data: []
+      data: [],
+      refreshing: false,
     }
   }
 
-  async componentDidMount(){
-    const articles = await axios.get('/api/articles?populate=variant,image')
+  getArticles = async () => {
     this.setState({
-      data: articles.data.data
+      refreshing: true
     })
+    const articles = await axios.get('/api/articles?populate=*')
+    this.setState({
+      data: articles.data.data,
+      refreshing: false,
+    })
+  }
+
+  async componentDidMount(){
+    await this.getArticles();
   }
 
   render(){
     return(
       <View style={styles.container}>
+        <Text style={styles.title}>Blogs</Text>
         <FlatList 
           data={this.state.data}
           keyExtractor={(item, index) => index.toString()}
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.refreshing}
+              onRefresh={this.getArticles}
+              tintColor= {contentColorDark}
+            />
+          }
           renderItem={({item}) => (
             <Card item={item} />
           )}
@@ -50,5 +75,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingTop: statusBarHeight,
     backgroundColor: bgColorDark,
+  },
+  title: {
+      fontSize: xxlgFont,
+      marginBottom: smSpace,
+      color: contentColorLight,
+      fontWeight: 'bold'
   },
 })

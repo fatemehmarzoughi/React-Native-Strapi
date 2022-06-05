@@ -16,9 +16,11 @@ export const bgColorLight = '#14152c';
 export const bgColorDark = '#000019';
 export const contentColorLight = '#fff';
 export const contentColorDark = 'gray';
+export const linkColor = '#097aec';
 
 // Font sizes
 export const smFont = 15;
 export const midFont = 18;
 export const lgFont = 20;
 export const xlgFont = 25;
+export const xxlgFont = 35;
