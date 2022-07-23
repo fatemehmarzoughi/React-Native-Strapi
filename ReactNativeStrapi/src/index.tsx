@@ -1,85 +1,26 @@
+/* -------------------------------------------------------------------------- */
+/*                                   Imports                                  */
+/* -------------------------------------------------------------------------- */
 import React from 'react';
-import { 
-    Text, 
-    StyleSheet, 
-    View, 
-    Dimensions, 
-    FlatList, 
-    StatusBar,
-    TouchableOpacity,
-    RefreshControl
-} from 'react-native';
-import axios from './core/_axios';
-import { 
-  bgColorDark, 
-  statusBarHeight, 
-  contentColorDark, 
-  contentColorLight, 
-  xxlgFont, 
-  smSpace,
-} from './constants/general'
-import Card from './components/card'
+import Main from './pages/main';
+import { createStore, applyMiddleware } from "redux";
+import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
+import { Provider } from 'react-redux';
+import { rootReducer } from "./reducers/index.ts";
 
-export default class Main extends React.Component{
+/* -------------------------------------------------------------------------- */
+/*                                     App                                    */
+/* -------------------------------------------------------------------------- */
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
-  constructor(){
-    super();
-    this.state={
-      data: [],
-      refreshing: false,
-    }
-  }
+const App = () => {
 
-  getArticles = async () => {
-    this.setState({
-      refreshing: true
-    })
-    const articles = await axios.get('/api/articles?populate=*')
-    this.setState({
-      data: articles.data.data,
-      refreshing: false,
-    })
-  }
-
-  async componentDidMount(){
-    await this.getArticles();
-  }
-
-  render(){
     return(
-      <View style={styles.container}>
-        <Text style={styles.title}>Blogs</Text>
-        <FlatList 
-          data={this.state.data}
-          keyExtractor={(item, index) => index.toString()}
-          refreshControl={
-            <RefreshControl
-              refreshing={this.state.refreshing}
-              onRefresh={this.getArticles}
-              tintColor= {contentColorDark}
-            />
-          }
-          renderItem={({item}) => (
-            <Card item={item} />
-          )}
-        />
-      </View>
+      <Provider store={store}>
+        <Main />
+      </Provider>
     )
-  }
 }
 
-const styles = StyleSheet.create({
-  container : {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: statusBarHeight,
-    backgroundColor: bgColorDark,
-  },
-  title: {
-      fontSize: xxlgFont,
-      marginBottom: smSpace,
-      color: contentColorLight,
-      fontWeight: 'bold'
-  },
-})
+export default App;
