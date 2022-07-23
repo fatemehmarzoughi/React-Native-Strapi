@@ -17,5 +17,17 @@ cd inside the <b>cms</b> folder and run <b>npm i && npm run develop</b>
 then go to <a>http://localhost:1337</a> and login to strapi
 <br/>
 <b>Step 3: </b>
-cd inside <b>ReactNativeStrapi</b> folder and run <b>npm i</b> then <b>react-native run-android</b>
-for ios you need to navigate to <b>ios</b> folder then run <b>pod install</b> and try running <b>react-native run-ios</b> inside the ReactNativeStrapi folder
+cd inside <b>ReactNativeStrapi</b> folder and run <b>npm i</b> 
+<br/>
+<b>For Android</b>
+run <b>react-native run-android</b>
+<br/>
+<b>For ios</b> 
+<br/>
+run <b>cd ios</b> 
+<br/>
+then run <b>pod install</b>
+<br/>
+then run <b>cd .. </b>
+<br/>
+then run <b>react-native run-ios</b> inside the ReactNativeStrapi folder
