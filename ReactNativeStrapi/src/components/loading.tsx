@@ -21,20 +21,16 @@ export default class Loading extends Component {
     /* ---------------------------------- Render --------------------------------- */
     render(){
         return(
-            <View style={[generalStyles.center, styles.container]}>
+            <View style={[
+                generalStyles.center, 
+                {
+                    height: this.props.height == 'sm' ? 70 : windowHeight,
+                    paddingBottom: this.props.height == 'sm' ? 0 : statusBarHeight,
+                    backgroundColor: this.props.backgroundColor ?? bgColorDark,
+                }
+            ]}>
                 <Text style={{color: 'white'}}>Loading</Text>
             </View>
         )
     }
 }
-
-/* -------------------------------------------------------------------------- */
-/*                                   Styles                                   */
-/* -------------------------------------------------------------------------- */
-const styles = StyleSheet.create({
-    container: {
-        height: windowHeight,
-        paddingBottom: statusBarHeight,
-        backgroundColor: bgColorDark,
-    }
-})

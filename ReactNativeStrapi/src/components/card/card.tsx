@@ -15,10 +15,10 @@ import {
   midFont,
   xlgSpace,
   linkColor,
-} from '../constants/general';
+} from '../../constants/general';
 import {BASE_URL} from 'react-native-dotenv';
-import PopUpModal from './popUpModal';
-import {generalStyles} from '../constants/styles/generalStyles';
+import PopUpModal from '../popUpModal/popUpModal';
+import {generalStyles} from '../../constants/styles/generalStyles';
 
 /* -------------------------------------------------------------------------- */
 /*                                    Card                                    */
@@ -32,7 +32,8 @@ export default class Card extends React.Component {
   }
   /* --------------------------------- Methods -------------------------------- */
 
-  openModal = () => {
+  openModal = async () => {
+    await this.props.getPostAuthor(this.props.item)
     this.setState({
       openModal: true,
     });
@@ -43,7 +44,8 @@ export default class Card extends React.Component {
       openModal: false,
     });
   };
-/* --------------------------------- Render --------------------------------- */
+
+  /* --------------------------------- Render --------------------------------- */
   render() {
     return (
       <TouchableOpacity style={styles.card}>
@@ -74,6 +76,7 @@ export default class Card extends React.Component {
           openModal={this.state.openModal}
           closeModal={this.closeModal}
           item={this.props.item}
+          AuthorStates={this.props.AuthorStates}
         />
       </TouchableOpacity>
     );
