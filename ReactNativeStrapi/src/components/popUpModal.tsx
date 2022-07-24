@@ -1,3 +1,6 @@
+/* -------------------------------------------------------------------------- */
+/*                                   Imports                                  */
+/* -------------------------------------------------------------------------- */
 import React from 'react';
 import {
   Text,
@@ -20,6 +23,9 @@ import {generalStyles} from '../constants/styles/generalStyles';
 import axios from '../core/_axios';
 import {BASE_URL} from 'react-native-dotenv';
 
+/* -------------------------------------------------------------------------- */
+/*                                 PopUp Modal                                */
+/* -------------------------------------------------------------------------- */
 export default class PopUpModal extends React.Component {
   constructor() {
     super();
@@ -29,7 +35,7 @@ export default class PopUpModal extends React.Component {
         'https://www.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png',
     };
   }
-
+/* --------------------------------- Methods -------------------------------- */
   getAuthorData = async () => {
     const {item} = this.props;
     if (item.attributes.author.data != null) {
@@ -47,7 +53,7 @@ export default class PopUpModal extends React.Component {
   async componentDidMount() {
     await this.getAuthorData();
   }
-
+/* --------------------------------- Render --------------------------------- */
   render() {
     const {openModal, closeModal} = this.props;
     return (
@@ -68,6 +74,9 @@ export default class PopUpModal extends React.Component {
   }
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                   Styles                                   */
+/* -------------------------------------------------------------------------- */
 const styles = StyleSheet.create({
   modalStyle: {
     width: windowWidth / 1.19,

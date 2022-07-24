@@ -1,3 +1,6 @@
+/* -------------------------------------------------------------------------- */
+/*                                   Imports                                  */
+/* -------------------------------------------------------------------------- */
 import React from 'react';
 import {Text, StyleSheet, TouchableOpacity, Image, View} from 'react-native';
 import {
@@ -17,6 +20,9 @@ import {BASE_URL} from 'react-native-dotenv';
 import PopUpModal from './popUpModal';
 import {generalStyles} from '../constants/styles/generalStyles';
 
+/* -------------------------------------------------------------------------- */
+/*                                    Card                                    */
+/* -------------------------------------------------------------------------- */
 export default class Card extends React.Component {
   constructor() {
     super();
@@ -24,6 +30,7 @@ export default class Card extends React.Component {
       openModal: false,
     };
   }
+  /* --------------------------------- Methods -------------------------------- */
 
   openModal = () => {
     this.setState({
@@ -36,7 +43,7 @@ export default class Card extends React.Component {
       openModal: false,
     });
   };
-
+/* --------------------------------- Render --------------------------------- */
   render() {
     return (
       <TouchableOpacity style={styles.card}>
@@ -73,6 +80,9 @@ export default class Card extends React.Component {
   }
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                   Styles                                   */
+/* -------------------------------------------------------------------------- */
 const styles = StyleSheet.create({
   card: {
     marginRight: smSpace,

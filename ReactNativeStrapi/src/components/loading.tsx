@@ -1,3 +1,6 @@
+/* -------------------------------------------------------------------------- */
+/*                                   Imports                                  */
+/* -------------------------------------------------------------------------- */
 import React, { Component } from 'react';
 import { Text, View, StyleSheet } from "react-native";
 import { generalStyles } from '../constants/styles/generalStyles';
@@ -7,14 +10,15 @@ import {
     windowHeight,
 } from '../constants/general.ts'
 
+/* -------------------------------------------------------------------------- */
+/*                                   Loading                                  */
+/* -------------------------------------------------------------------------- */
 export default class Loading extends Component {
     constructor() {
         super();
-        this.state = {
-
-        }
+        this.state = {}
     }
-
+    /* ---------------------------------- Render --------------------------------- */
     render(){
         return(
             <View style={[generalStyles.center, styles.container]}>
@@ -24,6 +28,9 @@ export default class Loading extends Component {
     }
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                   Styles                                   */
+/* -------------------------------------------------------------------------- */
 const styles = StyleSheet.create({
     container: {
         height: windowHeight,
