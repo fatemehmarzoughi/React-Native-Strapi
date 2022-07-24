@@ -14,8 +14,8 @@ import {
   linkColor,
 } from '../constants/general';
 import {BASE_URL} from 'react-native-dotenv';
-import PopUpModal from './pop-up-modal';
-import {generalStyles} from '../constants/styles/general-styles';
+import PopUpModal from './popUpModal';
+import {generalStyles} from '../constants/styles/generalStyles';
 
 export default class Card extends React.Component {
   constructor() {

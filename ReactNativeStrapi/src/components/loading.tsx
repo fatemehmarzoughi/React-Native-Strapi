@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet } from "react-native";
-import { generalStyles } from '../constants/styles/general-styles';
+import { generalStyles } from '../constants/styles/generalStyles';
 import {
     statusBarHeight,
     bgColorDark,

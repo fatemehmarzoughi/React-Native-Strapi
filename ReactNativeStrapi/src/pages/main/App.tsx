@@ -12,7 +12,7 @@ import {
   xxlgFont,
   smSpace,
 } from '../../constants/general.ts';
-import { generalStyles } from "../../constants/styles/general-styles";
+import { generalStyles } from "../../constants/styles/generalStyles";
 import Card from '../../components/card';
 import Loading from "../../components/loading";
 

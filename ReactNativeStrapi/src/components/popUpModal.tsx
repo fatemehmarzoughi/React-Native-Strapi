@@ -16,7 +16,7 @@ import {
   xlgFont,
   midFont,
 } from '../constants/general';
-import {generalStyles} from '../constants/styles/general-styles';
+import {generalStyles} from '../constants/styles/generalStyles';
 import axios from '../core/_axios';
 import {BASE_URL} from 'react-native-dotenv';
 
