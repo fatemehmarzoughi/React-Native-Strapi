@@ -7,13 +7,13 @@ import { getAllPosts } from '../../actions/posts/postsActions.ts';
 
 
 const mapStateToProps = (state) => {
-    return {
-      PostsStates: state.PostsStates,
-    }
+  return {
+    PostsStates: state.PostsStates,
   }
-  
-  const mapDispatchToProps = {
-    getAllPosts,
-  }
+}
+
+const mapDispatchToProps = {
+  getAllPosts,
+}
   
 export default connect(mapStateToProps, mapDispatchToProps)(Main);

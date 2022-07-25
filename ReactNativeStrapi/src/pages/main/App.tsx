@@ -12,7 +12,7 @@ import {
   xxlgFont,
   smSpace,
 } from '../../constants/general.ts';
-import { generalStyles } from "../../constants/styles/general-styles";
+import { generalStyles } from "../../constants/styles/generalStyles";
 import Card from '../../components/card';
 import Loading from "../../components/loading";
 
@@ -25,6 +25,7 @@ export default class Main extends React.Component {
     this.state = {
       data: [],
       refreshing: false,
+      openModal: false,
     };
   }
 
@@ -34,7 +35,6 @@ export default class Main extends React.Component {
       refreshing: true,
     });
     await this.props.getAllPosts()
-    console.log(this.props.AllPosts)
     this.setState({
       refreshing: false,
     });
@@ -63,7 +63,14 @@ export default class Main extends React.Component {
                 tintColor={contentColorDark}
               />
             }
-            renderItem={({item}) => <Card item={item} />}
+            renderItem={
+              ({item}) => 
+              (
+                <Card 
+                  item={item} 
+                />
+              )              
+            }
           />
         )}
       </View>
