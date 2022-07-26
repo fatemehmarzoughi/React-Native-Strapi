@@ -1,0 +1,2 @@
+1- remove the imageURL from AthorActions
+Use umage strapi dito for getting images

@@ -20,16 +20,28 @@ import {
   midFont,
 } from '../../constants/general';
 import { generalStyles } from '../../constants/styles/generalStyles';
-import { BASE_URL } from 'react-native-dotenv';
 import Loading from '../loading';
+import { AuthorStates } from '../../reducers/author';
+import { Attribute } from '../../core/types/general';
+
+/* ------------------------------- Props types ------------------------------ */
+type Props = {
+  openModal: boolean,
+  closeModal: Function,
+  AuthorStates: AuthorStates,
+  item: Attribute,
+}
+
+/* ------------------------------- State Types ------------------------------ */
+type States = {}
 
 /* -------------------------------------------------------------------------- */
 /*                                 PopUp Modal                                */
 /* -------------------------------------------------------------------------- */
-export default class PopUpModal extends React.Component {
+export default class PopUpModal extends React.Component<Props, States> {
 /* ------------------------------- Constructor ------------------------------ */
-  constructor() {
-    super();
+  constructor(props: Props) {
+    super(props);
   }
 /* --------------------------------- Render --------------------------------- */
   render() {
@@ -49,7 +61,7 @@ export default class PopUpModal extends React.Component {
                 <View style={[generalStyles.center]}>
                   <Image style={styles.image} source={{uri: imageURL}} />
                   <Text style={styles.title} onPress={() => closeModal()}>
-                    {authorInfo.name ?? 'The Author is Unknown'}
+                    {authorInfo.fullname ?? 'The Author is Unknown'}
                   </Text>
                   <Text style={styles.subTitle}>{authorInfo.email}</Text>
                 </View>

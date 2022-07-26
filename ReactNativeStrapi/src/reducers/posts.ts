@@ -1,14 +1,21 @@
 /* -------------------------------------------------------------------------- */
 /*                                   Imports                                  */
 /* -------------------------------------------------------------------------- */
-import React from "react";
 import { 
     GET_POSTS_SUCCESSFULLY,
     GET_POSTS_FAILED,
     GET_POSTS,
-} from "../actions/posts/types"
+} from "../actions/posts/types";
+import { PostAction } from "../core/types/actions";
+import { Attribute } from "../core/types/general";
 
-const initialState = {
+/* -------------------------------- Interface ------------------------------- */
+export interface PostStates {
+    loading: boolean,
+    posts: Array<Attribute>,
+}
+
+const initialState: PostStates = {
     loading: false,
     posts: [],
 }
@@ -16,30 +23,25 @@ const initialState = {
 /* -------------------------------------------------------------------------- */
 /*                                Posts Reducer                               */
 /* -------------------------------------------------------------------------- */
-export default function (state=initialState, action) {
+export default function (state=initialState, action: PostAction) {
     switch (action.type) {
         case GET_POSTS:
             return {
                 ...state,
                 loading: true,
             }
-            break;
         case GET_POSTS_SUCCESSFULLY:
             return {
                 ...state,
                 loading: false,
                 posts: action.payload,
             }
-            break;
         case GET_POSTS_FAILED:
             return {
                 ...state,
                 loading: false,
             }
-            break;
-    
         default:
             return state;
-            break;
     }
 }

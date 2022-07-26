@@ -1,12 +1,13 @@
 /* -------------------------------------------------------------------------- */
 /*                                   Imports                                  */
 /* -------------------------------------------------------------------------- */
-import Main from './App.tsx';
+import Main from './App';
 import { connect } from 'react-redux';
-import { getAllPosts } from '../../actions/posts/postsActions.ts';
+import { getAllPosts } from '../../actions/posts/postsActions';
+import { AppStates } from '../../core/types/states';
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: AppStates) => {
   return {
     PostsStates: state.PostsStates,
   }

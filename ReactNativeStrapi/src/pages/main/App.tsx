@@ -3,27 +3,39 @@
 /* -------------------------------------------------------------------------- */
 import React from 'react';
 import { Text, StyleSheet, View, FlatList, RefreshControl } from 'react-native';
-import axios from '../../core/_axios.ts';
 import {
   bgColorDark,
   statusBarHeight,
   contentColorDark,
-  contentColorLight,
-  xxlgFont,
-  smSpace,
-} from '../../constants/general.ts';
+  windowHeight,
+  lgSpace,
+  bgColorLight,
+  lgRadius,
+} from '../../constants/general';
 import { generalStyles } from "../../constants/styles/generalStyles";
 import Card from '../../components/card';
 import Loading from "../../components/loading";
+import { PostStates } from '../../reducers/posts';
+
+
+/* ------------------------------- Props type ------------------------------- */
+type Props = {
+  PostsStates: PostStates,
+  getAllPosts: Function,
+};
+/* ------------------------------- States Type ------------------------------ */
+type States = {
+  refreshing: boolean,
+  openModal: boolean,
+}
 
 /* -------------------------------------------------------------------------- */
 /*                            Main Class Component                            */
 /* -------------------------------------------------------------------------- */
-export default class Main extends React.Component {
-  constructor() {
-    super();
+export default class Main extends React.Component<Props, States> {
+  constructor(props: Props) {
+    super(props);
     this.state = {
-      data: [],
       refreshing: false,
       openModal: false,
     };
@@ -49,46 +61,57 @@ export default class Main extends React.Component {
     const { posts, loading } = this.props.PostsStates;
     return (
       <View style={[styles.container, generalStyles.center]}>
-        <Text style={styles.title}>Blogs</Text>
+        <Text style={generalStyles.title}>Blogs</Text>
         {loading ? (
           <Loading />
         ) : (
-          <FlatList
-            data={posts}
-            keyExtractor={(item, index) => index.toString()}
-            refreshControl={
-              <RefreshControl
-                refreshing={this.state.refreshing}
-                onRefresh={this.getArticles}
-                tintColor={contentColorDark}
-              />
-            }
-            renderItem={
-              ({item}) => 
-              (
-                <Card 
-                  item={item} 
+          posts.length == 0 ? (
+            <View style={[styles.errorContainer, generalStyles.center]}>
+              <Text style={generalStyles.errorText}>Error Loading Content</Text>
+              <Text 
+                style={styles.simpleButton}
+                onPress={this.getArticles}
+              >Refresh</Text>
+            </View>
+          ) : (
+            <FlatList
+              data={posts}
+              keyExtractor={(item, index) => index.toString()}
+              refreshControl={
+                <RefreshControl
+                  refreshing={this.state.refreshing}
+                  onRefresh={this.getArticles}
+                  tintColor={contentColorDark}
                 />
-              )              
-            }
-          />
+              }
+              renderItem={
+                ({item}) => <Card item={item} />
+              }
+            />
+          )
         )}
       </View>
     );
   }
 }
 
-/* --------------------------------- Styles --------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                   Styles                                   */
+/* -------------------------------------------------------------------------- */
 const styles = StyleSheet.create({
   container: {
     paddingTop: statusBarHeight,
     backgroundColor: bgColorDark,
   },
-  title: {
-    fontSize: xxlgFont,
-    marginBottom: smSpace,
-    color: contentColorLight,
-    fontWeight: 'bold',
+  errorContainer: {
+    height: windowHeight - statusBarHeight,
+    backgroundColor: bgColorDark,
   },
+  simpleButton: {
+    color: 'white',
+    padding: lgSpace,
+    backgroundColor: bgColorLight,
+    borderRadius: lgRadius,
+  }
 });
 

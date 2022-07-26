@@ -4,23 +4,29 @@ import {
 } from 'react-native';
 
 // Spaces
-export const statusBarHeight = StatusBar.currentHeight + 80;
-export const windowWidth = Dimensions.get('window').width;
-export const windowHeight = Dimensions.get('window').height;
-export const smSpace = 10;
-export const lgSpace = 20;
-export const xlgSpace = 30;
+export const statusBarHeight: number = StatusBar.currentHeight! + 80;
+export const windowWidth: number = Dimensions.get('window').width;
+export const windowHeight: number = Dimensions.get('window').height;
+export const smSpace: number = 10;
+export const lgSpace: number = 20;
+export const xlgSpace: number = 30;
 
 // Colors
-export const bgColorLight = '#14152c';
-export const bgColorDark = '#000019';
-export const contentColorLight = '#fff';
-export const contentColorDark = 'gray';
-export const linkColor = '#097aec';
+export const bgColorLight: string = '#14152c';
+export const bgColorDark: string = '#000019';
+export const contentColorLight: string = '#fff';
+export const contentColorDark: string = 'gray';
+export const linkColor: string = '#097aec';
+export const danger: string = 'red';
 
 // Font sizes
-export const smFont = 15;
-export const midFont = 18;
-export const lgFont = 20;
-export const xlgFont = 25;
-export const xxlgFont = 35;
+export const smFont: number = 15;
+export const midFont: number = 18;
+export const lgFont: number = 20;
+export const xlgFont: number = 25;
+export const xxlgFont: number = 35;
+
+// Radius
+export const smRadius: number = 5;
+export const mdRadius: number = 10;
+export const lgRadius: number = 20;
