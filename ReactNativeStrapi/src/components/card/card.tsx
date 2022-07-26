@@ -16,16 +16,31 @@ import {
   xlgSpace,
   linkColor,
 } from '../../constants/general';
-import {BASE_URL} from 'react-native-dotenv';
 import PopUpModal from '../popUpModal/popUpModal';
 import {generalStyles} from '../../constants/styles/generalStyles';
+import { Post } from '../../core/types/entities';
+import { AuthorStates } from '../../reducers/author';
+import { BASE_URL } from 'react-native-dotenv';
+import { Attribute } from '../../core/types/general';
+
+/* ------------------------------- Props Type ------------------------------- */
+type Props = {
+  item: Attribute,
+  getPostAuthor: Function,
+  AuthorStates: AuthorStates,
+}
+
+/* ------------------------------- States Type ------------------------------ */
+type States = {
+  openModal: boolean,
+}
 
 /* -------------------------------------------------------------------------- */
 /*                                    Card                                    */
 /* -------------------------------------------------------------------------- */
-export default class Card extends React.Component {
-  constructor() {
-    super();
+export default class Card extends React.Component<Props, States> {
+  constructor(props: Props) {
+    super(props);
     this.state = {
       openModal: false,
     };
@@ -47,24 +62,24 @@ export default class Card extends React.Component {
 
   /* --------------------------------- Render --------------------------------- */
   render() {
+    const post = this.props.item.attributes as Post;
     return (
       <TouchableOpacity style={styles.card}>
         <Image
           style={styles.image}
           source={{
-            uri:
-              BASE_URL + this.props.item.attributes.image.data.attributes.url,
+            uri: BASE_URL + post.image.data.attributes.url
           }}
         />
         <Text style={[styles.content, styles.title]}>
-          {this.props.item.attributes.title}
+          {post.title}
         </Text>
         <Text style={[styles.content, styles.subTitle]}>
-          {this.props.item.attributes.description}
+          {post.description}
         </Text>
         <View style={[generalStyles.row]}>
           <Text style={[styles.content, styles.subTitle2]}>
-            {this.props.item.attributes.createdAt}
+            {post.date}
           </Text>
           <Text
             style={[styles.content, styles.link]}

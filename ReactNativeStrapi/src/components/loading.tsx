@@ -2,21 +2,29 @@
 /*                                   Imports                                  */
 /* -------------------------------------------------------------------------- */
 import React, { Component } from 'react';
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View } from "react-native";
 import { generalStyles } from '../constants/styles/generalStyles';
 import {
     statusBarHeight,
     bgColorDark,
     windowHeight,
-} from '../constants/general.ts'
+} from '../constants/general';
+
+/* ------------------------------- Props Type ------------------------------ */
+type Props = {
+    height?: string,
+    backgroundColor?: string,
+}
+
+/* ------------------------------- States Type ------------------------------ */
+type States = {}
 
 /* -------------------------------------------------------------------------- */
 /*                                   Loading                                  */
 /* -------------------------------------------------------------------------- */
-export default class Loading extends Component {
-    constructor() {
-        super();
-        this.state = {}
+export default class Loading extends Component<Props, States> {
+    constructor(props: Props) {
+        super(props);
     }
     /* ---------------------------------- Render --------------------------------- */
     render(){

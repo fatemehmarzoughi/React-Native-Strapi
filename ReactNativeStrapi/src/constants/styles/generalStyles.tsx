@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { contentColorLight, danger, lgFont, smFont, smSpace, xxlgFont } from '../general';
 
 export const generalStyles = StyleSheet.create({
   row: {
@@ -18,4 +19,15 @@ export const generalStyles = StyleSheet.create({
       justifyContent: 'space-between',
       flexDirection: 'column'
   },
+  title: {
+    fontSize: xxlgFont,
+    marginBottom: smSpace,
+    color: contentColorLight,
+    fontWeight: 'bold',
+  },
+  errorText: {
+    fontSize: lgFont,
+    marginBottom: smSpace,
+    color: danger,
+  }
 })
