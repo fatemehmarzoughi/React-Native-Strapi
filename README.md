@@ -6,6 +6,7 @@ Connecting React Native application to Strapi APIs
 <img src="https://user-images.githubusercontent.com/48021528/172071178-24c8d823-911e-4175-b059-524aa44543cd.png" width="180" height="400"/>
 <img src="https://user-images.githubusercontent.com/48021528/172071083-06bfce74-57fc-4e40-8b20-8c1f1516625d.png" width="180" height="400"/>
 <img src="https://user-images.githubusercontent.com/48021528/172071061-0ccfe2f9-ad0f-451a-b7ef-214a8a136b6a.png" width="180" height="400"/>
+<img src="https://user-images.githubusercontent.com/48021528/181029045-93fdabd4-0a72-427b-afea-93290516e19a.png" width="180" height="400"/>
 </div>
 
 #  How to use?
