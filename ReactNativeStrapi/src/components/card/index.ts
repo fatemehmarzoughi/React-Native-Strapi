@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Card from './card';
-import { getPostAuthor } from "../../actions/posts/postsActions";
-import { AppStates } from '../../core/types/states';
+import { getPostAuthor } from "src/actions/posts/postsActions";
+import { AppStates } from 'src/core/types/states';
 
 const mapStateToProps = (state: AppStates) => {
     return {

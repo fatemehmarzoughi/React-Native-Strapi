@@ -2,8 +2,8 @@
 /*                                   Imports                                  */
 /* -------------------------------------------------------------------------- */
 
-import { AuthorStates } from "../../reducers/author";
-import { PostStates } from "../../reducers/posts";
+import { AuthorStates } from "src/reducers/author";
+import { PostStates } from "src/reducers/posts";
 
 /* -------------------------------------------------------------------------- */
 /*                                 State Types                                */

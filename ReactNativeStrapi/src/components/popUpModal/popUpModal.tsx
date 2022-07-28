@@ -18,11 +18,11 @@ import {
   contentColorLight,
   xlgFont,
   midFont,
-} from '../../constants/general';
-import { generalStyles } from '../../constants/styles/generalStyles';
+} from 'src/constants/general';
+import { generalStyles } from 'src/constants/styles/generalStyles';
 import Loading from '../loading';
-import { AuthorStates } from '../../reducers/author';
-import { Attribute } from '../../core/types/general';
+import { AuthorStates } from 'src/reducers/author';
+import { Attribute } from 'src/core/types/general';
 
 /* ------------------------------- Props types ------------------------------ */
 type Props = {

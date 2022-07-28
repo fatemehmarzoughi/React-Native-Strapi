@@ -5,9 +5,9 @@ import {
     GET_POSTS_SUCCESSFULLY,
     GET_POSTS_FAILED,
     GET_POSTS,
-} from "../actions/posts/types";
-import { PostAction } from "../core/types/actions";
-import { Attribute } from "../core/types/general";
+} from "src/actions/posts/types";
+import { PostAction } from "src/core/types/actions";
+import { Attribute } from "src/core/types/general";
 
 /* -------------------------------- Interface ------------------------------- */
 export interface PostStates {
