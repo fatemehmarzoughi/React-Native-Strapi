@@ -11,11 +11,11 @@ import {
   lgSpace,
   bgColorLight,
   lgRadius,
-} from '../../constants/general';
-import { generalStyles } from "../../constants/styles/generalStyles";
-import Card from '../../components/card';
-import Loading from "../../components/loading";
-import { PostStates } from '../../reducers/posts';
+} from "src/constants/general";
+import { generalStyles } from "src/constants/styles/generalStyles";
+import Card from 'src/components/card';
+import Loading from "src/components/loading";
+import { PostStates } from 'src/reducers/posts';
 
 
 /* ------------------------------- Props type ------------------------------- */
@@ -23,6 +23,7 @@ type Props = {
   PostsStates: PostStates,
   getAllPosts: Function,
 };
+
 /* ------------------------------- States Type ------------------------------ */
 type States = {
   refreshing: boolean,

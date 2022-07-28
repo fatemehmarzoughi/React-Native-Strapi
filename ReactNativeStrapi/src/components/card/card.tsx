@@ -15,13 +15,13 @@ import {
   midFont,
   xlgSpace,
   linkColor,
-} from '../../constants/general';
+} from 'src/constants/general';
 import PopUpModal from '../popUpModal/popUpModal';
-import {generalStyles} from '../../constants/styles/generalStyles';
-import { Post } from '../../core/types/entities';
-import { AuthorStates } from '../../reducers/author';
+import {generalStyles} from 'src/constants/styles/generalStyles';
+import { Post } from 'src/core/types/entities';
+import { AuthorStates } from 'src/reducers/author';
 import { BASE_URL } from 'react-native-dotenv';
-import { Attribute } from '../../core/types/general';
+import { Attribute } from 'src/core/types/general';
 
 /* ------------------------------- Props Type ------------------------------- */
 type Props = {
