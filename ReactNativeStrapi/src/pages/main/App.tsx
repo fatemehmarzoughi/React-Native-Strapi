@@ -11,11 +11,11 @@ import {
   lgSpace,
   bgColorLight,
   lgRadius,
-} from "src/constants/general";
-import { generalStyles } from "src/constants/styles/generalStyles";
-import Card from 'src/components/card';
-import Loading from "src/components/loading";
-import { PostStates } from 'src/reducers/posts';
+} from "@src/constants/general";
+import { generalStyles } from "@src/constants/styles/generalStyles";
+import Card from '@src/components/card';
+import Loading from "@src/components/loading";
+import { PostStates } from '@src/reducers/posts';
 
 
 /* ------------------------------- Props type ------------------------------- */

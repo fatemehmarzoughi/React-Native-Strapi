@@ -3,12 +3,12 @@
 /* -------------------------------------------------------------------------- */
 import React, { Component } from 'react';
 import { Text, View } from "react-native";
-import { generalStyles } from 'src/constants/styles/generalStyles';
+import { generalStyles } from '@src/constants/styles/generalStyles';
 import {
     statusBarHeight,
     bgColorDark,
     windowHeight,
-} from 'src/constants/general';
+} from '@src/constants/general';
 
 /* ------------------------------- Props Type ------------------------------ */
 type Props = {

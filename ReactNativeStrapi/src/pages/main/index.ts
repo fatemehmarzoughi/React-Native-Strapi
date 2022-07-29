@@ -3,8 +3,8 @@
 /* -------------------------------------------------------------------------- */
 import Main from './App';
 import { connect } from 'react-redux';
-import { getAllPosts } from 'src/actions/posts/postsActions';
-import { AppStates } from 'src/core/types/states';
+import { AppStates } from "@src/core/types/states";
+import { getAllPosts } from "@src/actions/posts/postsActions";
 
 
 const mapStateToProps = (state: AppStates) => {
