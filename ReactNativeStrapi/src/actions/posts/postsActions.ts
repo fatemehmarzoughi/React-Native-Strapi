@@ -21,13 +21,13 @@ type AllDispatch = (arg: PostAction) => (PostAction);
 /* -------------------------------------------------------------------------- */
 /*                                Posts Actions                               */
 /* -------------------------------------------------------------------------- */
-export function getAllPosts() {
+export function getAllPosts(locale: string) {
     return async (dispatch: AllDispatch) => {
         dispatch({
             type: GET_POSTS,
         })
         try {
-            const articles = await axios.get('/api/articles?populate=*');
+            const articles = await axios.get(`/api/articles?populate=*&locale=${locale}`);
             dispatch({
                 type: GET_POSTS_SUCCESSFULLY,
                 payload: articles.data.data,

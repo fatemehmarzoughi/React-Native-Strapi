@@ -20,3 +20,8 @@ export type PostAction = {
     error?: Error, 
     imageURL?: String,
 }
+
+export type GlobalActions = {
+    type: any,
+    payload: any
+}

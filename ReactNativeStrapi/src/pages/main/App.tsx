@@ -11,17 +11,24 @@ import {
   lgSpace,
   bgColorLight,
   lgRadius,
+  windowWidth,
+  smSpace,
+  xlgSpace,
 } from "@src/constants/general";
 import { generalStyles } from "@src/constants/styles/generalStyles";
 import Card from '@src/components/card';
 import Loading from "@src/components/loading";
 import { PostStates } from '@src/reducers/posts';
+import { GlobalStates } from '@src/reducers/global';
 
 
 /* ------------------------------- Props type ------------------------------- */
 type Props = {
   PostsStates: PostStates,
-  getAllPosts: Function,
+  getAllPosts: (dispatch: any) => Promise<void>,
+  setLanguageToFa: () => void,
+  setLanguageToEn: () => void,
+  locale: string,
 };
 
 /* ------------------------------- States Type ------------------------------ */
@@ -47,7 +54,7 @@ export default class Main extends React.Component<Props, States> {
     this.setState({
       refreshing: true,
     });
-    await this.props.getAllPosts()
+    await this.props.getAllPosts(this.props.locale)
     this.setState({
       refreshing: false,
     });
@@ -57,12 +64,28 @@ export default class Main extends React.Component<Props, States> {
     await this.getArticles();
   }
 
+  setLanguage = async () => {
+    console.log(this.props.locale)
+    if(this.props.locale === 'en') {
+      this.props.setLanguageToFa();
+    } else {
+      this.props.setLanguageToEn();
+    }
+    await this.getArticles();
+  }
+
   /* --------------------------------- Render --------------------------------- */
   render() {
     const { posts, loading } = this.props.PostsStates;
     return (
       <View style={[styles.container, generalStyles.center]}>
-        <Text style={generalStyles.title}>Blogs</Text>
+        <View style={[styles.header, generalStyles.row]}>
+          <Text 
+            onPress={this.setLanguage}
+            style={[generalStyles.linkText]}>{this.props.locale === 'en' ? 'Fa': 'En'}</Text>
+          <Text style={generalStyles.title}>Blogs</Text>
+          <Text style={{opacity: 0}}>Fa</Text>
+        </View>
         {loading ? (
           <Loading />
         ) : (
@@ -103,6 +126,7 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: statusBarHeight,
     backgroundColor: bgColorDark,
+    height: windowHeight,
   },
   errorContainer: {
     height: windowHeight - statusBarHeight,
@@ -113,6 +137,9 @@ const styles = StyleSheet.create({
     padding: lgSpace,
     backgroundColor: bgColorLight,
     borderRadius: lgRadius,
+  },
+  header: {
+    width: windowWidth - xlgSpace,
   }
 });
 

@@ -79,7 +79,7 @@ export default class Card extends React.Component<Props, States> {
         </Text>
         <View style={[generalStyles.row]}>
           <Text style={[styles.content, styles.subTitle2]}>
-            {post.date}
+            {post.publishedAt}
           </Text>
           <Text
             style={[styles.content, styles.link]}

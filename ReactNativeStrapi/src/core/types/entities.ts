@@ -11,7 +11,7 @@ export type Post = {
     title: String,
     description: String,
     image: ImageStrapi,
-    date: Date,
+    publishedAt: Date,
     author: any,
 }
 
