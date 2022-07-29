@@ -1,7 +1,7 @@
 /* -------------------------------------------------------------------------- */
 /*                                   Imports                                  */
 /* -------------------------------------------------------------------------- */
-import axios from "src/core/_axios";
+import axios from "@src/core/_axios";
 import { 
     GET_POSTS, 
     GET_POSTS_SUCCESSFULLY, 
@@ -11,9 +11,9 @@ import {
     GET_POST_AUTHOR_SUCCESSFULLY,
 } from './types';
 import { BASE_URL } from 'react-native-dotenv';
-import { Post } from "src/core/types/entities";
-import { PostAction } from "src/core/types/actions";
-import { Attribute } from "src/core/types/general";
+import { Post } from "@src/core/types/entities";
+import { PostAction } from "@src/core/types/actions";
+import { Attribute } from "@src/core/types/general";
 
 /* --------------------------- Dispatch Type --------------------------- */
 type AllDispatch = (arg: PostAction) => (PostAction);

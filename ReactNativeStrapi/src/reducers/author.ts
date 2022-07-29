@@ -5,9 +5,9 @@ import {
     GET_POST_AUTHOR,
     GET_POST_AUTHOR_FAILED,
     GET_POST_AUTHOR_SUCCESSFULLY,
-} from 'src/actions/posts/types';
-import { AuthorAction } from 'src/core/types/actions';
-import { Author } from 'src/core/types/entities';
+} from '@src/actions/posts/types';
+import { AuthorAction } from '@src/core/types/actions';
+import { Author } from '@src/core/types/entities';
 
 /* -------------------------------------------------------------------------- */
 /*                               Author Reducer                               */

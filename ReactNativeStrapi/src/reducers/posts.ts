@@ -1,13 +1,13 @@
 /* -------------------------------------------------------------------------- */
 /*                                   Imports                                  */
 /* -------------------------------------------------------------------------- */
+import { PostAction } from "@src/core/types/actions";
 import { 
     GET_POSTS_SUCCESSFULLY,
     GET_POSTS_FAILED,
     GET_POSTS,
-} from "src/actions/posts/types";
-import { PostAction } from "src/core/types/actions";
-import { Attribute } from "src/core/types/general";
+} from "@src/actions/posts/types";
+import { Attribute } from "@src/core/types/general";
 
 /* -------------------------------- Interface ------------------------------- */
 export interface PostStates {
