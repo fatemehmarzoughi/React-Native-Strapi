@@ -3,6 +3,7 @@
 /* -------------------------------------------------------------------------- */
 
 import { AuthorStates } from "@src/reducers/author";
+import { GlobalStates } from "@src/reducers/global";
 import { PostStates } from "@src/reducers/posts";
 
 /* -------------------------------------------------------------------------- */
@@ -12,4 +13,5 @@ import { PostStates } from "@src/reducers/posts";
 export type AppStates = {
     PostsStates: PostStates,
     AuthorStates: AuthorStates,
+    GlobalStates: GlobalStates,
 }

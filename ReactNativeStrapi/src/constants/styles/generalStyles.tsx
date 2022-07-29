@@ -1,5 +1,13 @@
 import { StyleSheet } from 'react-native';
-import { contentColorLight, danger, lgFont, smFont, smSpace, xxlgFont } from '../general';
+import { 
+  contentColorLight, 
+  danger, 
+  lgFont, 
+  linkColor, 
+  smSpace, 
+  xlgFont, 
+  xxlgFont 
+} from '../general';
 
 export const generalStyles = StyleSheet.create({
   row: {
@@ -29,5 +37,10 @@ export const generalStyles = StyleSheet.create({
     fontSize: lgFont,
     marginBottom: smSpace,
     color: danger,
+  },
+  linkText: {
+    fontSize: xlgFont,
+    marginBottom: smSpace,
+    color: linkColor,
   }
 })
