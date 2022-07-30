@@ -2,9 +2,9 @@
 Connecting React Native application to Strapi APIs
 
 # Technologies
-1- Redux, redux-thunk
-2- Strapi
-3- Axios
+1- Redux, redux-thunk <br/>
+2- Strapi <br/>
+3- Axios 
 
 # Preview
 <div style="flex-direction: row">
