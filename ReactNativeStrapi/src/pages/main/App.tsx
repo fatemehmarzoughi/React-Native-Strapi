@@ -26,8 +26,7 @@ import { GlobalStates } from '@src/reducers/global';
 type Props = {
   PostsStates: PostStates,
   getAllPosts: (dispatch: any) => Promise<void>,
-  setLanguageToFa: () => void,
-  setLanguageToEn: () => void,
+  setLanguage: (locale: string) => void,
   locale: string,
 };
 
@@ -35,6 +34,7 @@ type Props = {
 type States = {
   refreshing: boolean,
   openModal: boolean,
+  locale: string,
 }
 
 /* -------------------------------------------------------------------------- */
@@ -46,15 +46,20 @@ export default class Main extends React.Component<Props, States> {
     this.state = {
       refreshing: false,
       openModal: false,
+      locale: '',
     };
   }
 
   /* --------------------------------- Methods -------------------------------- */
+
+  shouldComponentUpdate(nextProps: Readonly<Props>, nextState: Readonly<States>, nextContext: any): boolean {
+      return true;
+  }
+
   getArticles = async () => {
     this.setState({
       refreshing: true,
-    });
-    await this.props.getAllPosts(this.props.locale)
+    }, async () => await this.props.getAllPosts(this.props.locale));
     this.setState({
       refreshing: false,
     });
@@ -64,14 +69,17 @@ export default class Main extends React.Component<Props, States> {
     await this.getArticles();
   }
 
-  setLanguage = async () => {
-    console.log(this.props.locale)
-    if(this.props.locale === 'en') {
-      this.props.setLanguageToFa();
-    } else {
-      this.props.setLanguageToEn();
-    }
-    await this.getArticles();
+  changeLanguage = async () => {
+    this.setState({
+      refreshing: true,
+    }, async () => {
+      if(this.props.locale === 'en') {
+        this.props.setLanguage('fa');
+      } else {
+        this.props.setLanguage('en');
+      }
+      await this.getArticles();
+    });
   }
 
   /* --------------------------------- Render --------------------------------- */
@@ -81,7 +89,7 @@ export default class Main extends React.Component<Props, States> {
       <View style={[styles.container, generalStyles.center]}>
         <View style={[styles.header, generalStyles.row]}>
           <Text 
-            onPress={this.setLanguage}
+            onPress={() => this.changeLanguage()}
             style={[generalStyles.linkText]}>{this.props.locale === 'en' ? 'Fa': 'En'}</Text>
           <Text style={generalStyles.title}>Blogs</Text>
           <Text style={{opacity: 0}}>Fa</Text>

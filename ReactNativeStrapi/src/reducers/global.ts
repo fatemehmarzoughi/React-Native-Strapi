@@ -1,7 +1,7 @@
 /* -------------------------------------------------------------------------- */
 /*                                   Imports                                  */
 /* -------------------------------------------------------------------------- */
-import { SET_LANGUAGE_TO_EN, SET_LANGUAGE_TO_FA } from "@src/actions/global/types";
+import { SET_LANGUAGE } from "@src/actions/global/types";
 import { GlobalActions } from "@src/core/types/actions";
 
 /* -------------------------------- Interface ------------------------------- */
@@ -15,12 +15,7 @@ const inisialStates: GlobalStates = {
 
 export default function(states = inisialStates, action: GlobalActions) {
     switch (action.type) {
-        case SET_LANGUAGE_TO_FA:
-            return {
-                ...states,
-                locale: action.payload,
-            }
-        case SET_LANGUAGE_TO_EN:
+        case SET_LANGUAGE:
             return {
                 ...states,
                 locale: action.payload,
